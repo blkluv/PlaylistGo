@@ -1,7 +1,7 @@
 import React from "react";
 import { BsPersonHeart } from "react-icons/bs";
 import { ImHeadphones } from "react-icons/im";
-import "../../css/title.css";
+import "../../../css/title.css";
 
 interface TitleProps {
   title: string;

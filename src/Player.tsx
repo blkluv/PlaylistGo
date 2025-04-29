@@ -78,7 +78,7 @@ const Player: React.FC = () => {
   return (
     <div className="music-player" id="player-container">
       <div className="header-logo" onClick={() => (window.location.href = "/")}>
-        <div className="logo-text">🎧 playlistgo.vercel.app ツ🖤</div>
+        <div className="logo-text">🎧 DJ. ツ🖤</div>
       </div>
       <SearchBar
         searchQuery={searchQuery}

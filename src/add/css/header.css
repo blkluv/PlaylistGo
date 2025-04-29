@@ -1,6 +1,5 @@
 /*************  ✨ Windsurf Command 🌟  *************/
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&family=Great+Vibes&family=Kaushan+Script&family=Alex+Brush&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&family=Baloo+2&display=swap");
 
 .header-logo {
   position: absolute;
@@ -9,10 +8,10 @@
 }
 
 .logo-text {
-  font-family: "Kaushan Script", cursive, sans-serif;
-  font-size: 1.4rem;
+  font-family: "Fredoka One", sans-serif;
+  font-size: 2.2rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #ff0000, #ff9900, #33cc33, #3399ff, #cc33ff);
+  background: linear-gradient(90deg, #ff00a1, #00bcd4, #ff9800, #39d353, #673ab7);
   background-size: 500% 500%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -21,7 +20,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -29,12 +27,9 @@
 }
 
 @keyframes equalizerEffect {
-
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
@@ -44,11 +39,9 @@
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
@@ -65,5 +58,3 @@
     cursor: pointer;
   }
 }
-
-/*******  c40758ec-c43c-4151-9029-ceb49fc3a259  *******/

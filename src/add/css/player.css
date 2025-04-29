@@ -6,17 +6,15 @@
 }
 
 body {
-  background-color: #282c34;
-  color: #333;
+  background-color: #1a1d2e;
+  color: #e0e0e0;
 }
 
+/* Smooth Background Animation */
 @keyframes gradientAnimation {
-
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
@@ -29,14 +27,13 @@ body {
   width: 100%;
   max-width: 100%;
   margin: 1.5rem auto;
-  border: 1px solid rgba(255, 255, 255, 0.515);
-  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
   overflow: hidden;
-  background-color: #000000b5;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  user-select: none;
+  background: linear-gradient(135deg, #0700c899, #e11cff83);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   z-index: 5;
 }
 
@@ -53,11 +50,11 @@ body {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 15px;
+  border-radius: 1rem;
 }
 
 .video-timing {
-  margin-top: 10px;
+  margin-top: 0.75rem;
   font-size: 1rem;
   color: #ffffff;
   text-align: center;
@@ -65,50 +62,59 @@ body {
 
 .music-player {
   width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #1c1d3a, #2a2d56);
   color: #ffffff;
-  border-radius: 15px;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s ease;
 }
 
 .music-player h2 {
-  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .add-song {
-  margin-top: 20px;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  justify-content: center;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .add-song input {
-  width: 40%;
-  padding: 10px;
+  width: 100%;
+  max-width: 60%;
+  padding: 0.6rem 1rem;
   font-size: 1rem;
-  border: 1px solid #007bff;
-  border-radius: 5px;
-  transition: border 0.3s;
+  border: 1px solid #5b5bff;
+  border-radius: 0.5rem;
+  background: #121320;
+  color: #fff;
+  transition: border-color 0.3s ease;
 }
 
 .add-song input:focus {
-  border-color: #0056b3;
+  border-color: #9a83ff;
   outline: none;
 }
 
 .timing-bar {
-  margin: 10px 0;
-  text-align: center;
+  width: 100%;
+  margin: 0.75rem 0;
 }
 
 .progress-bar {
   width: 100%;
-  height: 5px;
-  background-color: #444;
-  border-radius: 5px;
+  height: 8px;
+  background-color: #444c6a;
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
 }
@@ -123,44 +129,41 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
-  color: #ffffff;
-  margin-top: 5px;
+  color: #b0c4ff;
+  margin-top: 0.4rem;
 }
 
-/* ----------------------------------------------------------- DESKTOP */
+/* ------------------ DESKTOP */
 @media (min-width: 601px) {
   .youtube-container {
     max-width: 35rem;
   }
 
-  .music-player {
-    padding: 15px;
-    border-radius: 10px;
-  }
-
   .music-player h2 {
     font-size: 1.5rem;
-    padding: 10px;
-  }
-}
-
-/* ----------------------------------------------------------- MOBILE */
-@media (max-width: 600px) {
-  .youtube-container {
-    border-radius: 10px;
-  }
-
-  .music-player {
-    padding: 10px 0;
-    border-radius: 10px;
   }
 
   .add-song input {
-    font-size: 0.9rem;
-    width: 100%;
+    max-width: 60%;
+  }
+}
+
+/* ------------------ MOBILE */
+@media (max-width: 600px) {
+  .youtube-container {
+    border-radius: 0.75rem;
+  }
+
+  .music-player {
+    padding: 0.75rem;
   }
 
   .music-player h2 {
     font-size: 1.2rem;
+  }
+
+  .add-song input {
+    width: 100%;
+    font-size: 0.9rem;
   }
 }

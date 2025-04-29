@@ -1,82 +1,89 @@
 .timing-bar {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    width: 30%;
-    font-family: sans-serif;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 35rem;
+    font-family: 'Segoe UI', sans-serif;
     cursor: pointer;
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
 
+/* Progress Container */
 .progress-bar {
     position: relative;
-    height: 8px;
-    background-color: #ddd;
+    height: 0.5rem;
+    background-color: #d4d4d4;
+    border-radius: 0.25rem;
     overflow: hidden;
     z-index: 10;
 }
 
+/* Progress Fill */
 .progress {
     height: 100%;
-    background-color: #273760;
-    transition: width 0.2s ease-in-out;
+    background: linear-gradient(90deg, #273760, #4b63aa);
+    transition: width 0.3s ease-in-out;
 }
 
+/* Animated Cursor */
+.seek-cursor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: cursorDance 15s infinite linear;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+/* Time Display */
+.timing-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+/* Cursor Animation */
 @keyframes cursorDance {
     0% {
         background-color: #ff90c0;
     }
-
     25% {
         background-color: #00eeff;
     }
-
     50% {
         background-color: #85baff;
     }
-
     75% {
         background-color: #d773ff;
     }
-
     100% {
         background-color: #00ffcc;
     }
 }
 
-.seek-cursor {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    transform: translate(-50%, -50%);
-    border-radius: 10%;
-    pointer-events: none;
-    animation: cursorDance 25s infinite linear;
-}
-
-.timing-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    color: #ddd;
-    white-space: nowrap;
-    width: 100%;
-}
-
+/* Responsive Styles */
 @media (max-width: 600px) {
-
-    .time-bar-container,
     .timing-bar {
         width: 100%;
+        padding: 0.25rem;
     }
-}
 
-@media (min-width: 601px) {
-
-    .timing-bar,
     .timing-info {
-        width: 35rem;
+        font-size: 0.75rem;
+    }
+
+    .seek-cursor {
+        width: 0.6rem;
+        height: 0.6rem;
     }
 }

@@ -5,19 +5,20 @@
     justify-content: center;
 }
 
+/* Floating Button */
 .social-button {
     position: fixed;
-    bottom: 5px;
-    right: 5px;
+    bottom: 1rem;
+    right: 1rem;
     cursor: pointer;
     background: linear-gradient(135deg, #0700c898, #e11cff83);
     color: #fff;
-    padding: 12px;
+    padding: 0.75rem;
+    border: 1px solid #fff;
     border-radius: 15%;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-    border: white 1px solid;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
+    transition: transform 0.3s, background-color 0.3s;
     z-index: 100;
 }
 
@@ -29,14 +30,15 @@
     transform: scale(0.8);
 }
 
+/* Dropdown Menu */
 .social-menu {
     display: flex;
-    position: relative;
     flex-direction: column;
+    position: relative;
+    gap: 0.75rem;
+    padding: 0.75rem;
     margin-bottom: 2rem;
-    gap: 12px;
     background: linear-gradient(135deg, #e11cffbc, #2574fcae);
-    padding: 12px;
     border-radius: 8px;
     font-size: 2rem;
     animation: slideIn 0.5s ease-in-out;
@@ -47,12 +49,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
+/* Default Icon Style */
 .social-icon {
-    color: #ffffff;
+    color: #fff;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+/* Special Icon Style */
 .social-icon-ielts {
     width: 2rem;
     height: 2rem;
@@ -62,17 +68,16 @@
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    text-decoration: none;
     font-weight: bold;
     font-size: 0.7rem;
-    color: white;
+    color: #fff;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .social-icon:hover,
 .social-icon-ielts:hover {
     color: #69fdbf;
     transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
 }
 
 .social-icon:active,
@@ -80,18 +85,30 @@
     transform: scale(0.8);
 }
 
+/* Slide-in Animation */
 @keyframes slideIn {
     from {
         transform: translateY(-30px);
+        opacity: 0;
     }
-
     to {
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
-@media screen and (max-width: 600px) {
+/* Responsive Enhancements */
+@media (max-width: 600px) {
+    .social-button {
+        bottom: 0.75rem;
+        right: 0.75rem;
+        font-size: 1.25rem;
+        padding: 0.65rem;
+    }
+
     .social-menu {
-        background: linear-gradient(135deg, #e11cffbc, #2574fcae);
+        gap: 0.5rem;
+        padding: 0.65rem;
+        font-size: 1.5rem;
     }
 }

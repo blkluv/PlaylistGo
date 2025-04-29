@@ -3,5 +3,18 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #000000; /* Black background */
+  color: #FFD700; /* Gold text */
+  font-family: 'Orbitron', sans-serif;
   overflow: hidden;
+}
+
+/* Neon glow effect */
+.neon-text {
+  color: #39FF14; /* Neon Green */
+  text-shadow:
+    0 0 5px #39FF14,
+    0 0 10px #39FF14,
+    0 0 20px #39FF14,
+    0 0 40px #39FF14;
 }

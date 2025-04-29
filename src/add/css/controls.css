@@ -1,6 +1,459 @@
-.controls-container {
+/* Global Styles */
+body {
+    background-color: #000; /* Black background */
+    color: #fff; /* Default text color to white, will adjust as needed */
+    font-family: 'Inter', sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
+    overflow-x: hidden;  /* Prevent horizontal scrollbar */
+  }
+  html{
+      height: 100%;
+      overflow-x: hidden;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  
+  /* --- Layout & Structure --- */
+  
+  /* Header (adjust as needed, keeping it minimal) */
+  header {
+    /* Remove default header background, go for transparency or subtle gradient */
+    /* background-color: #1a1a1a;  */
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 10; /* Ensure header is above other elements */
+    position: relative;
+  }
+  header h1{
+      color: #FFD700; /* Gold */
+      font-size: 2rem;
+      font-weight: bold;
+  }
+  
+  /* Main Content Area */
+  main {
+    flex: 1; /* Take up remaining available space */
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px;  Remove default padding, will handle in sections */
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #000; /* Keep footer black */
+    color: #b8b8b8;
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #2a2a2a;
+  }
+  
+  /* --- Typography --- */
+  h1, h2, h3 {
+    color: #FFD700; /* Gold for headings */
+    font-weight: bold; /* Make headings strong */
+    margin-bottom: 0.5em;
+  }
+  
+  p {
+    color: #eee; /* Off-white for paragraphs, better contrast on black */
+    line-height: 1.7; /* Improved readability */
+  }
+  
+  a {
+    color: #b19cd9; /* Light purple for links */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+  
+  a:hover {
+    color: #f472b6; /* Hot pink on hover, for a pop */
+  }
+  
+  /* ---  Buttons (General) --- */
+  .button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08); /* Add shadow */
+  }
+  
+  .button:hover {
+    transform: translateY(-2px) scale(1.05); /* Slight lift and scale on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.12);
+  }
+  
+  .button:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Primary Button (Gold) */
+  .primary-button {
+    background-color: #FFD700;
+    color: #000;
+  }
+  
+  .primary-button:hover {
+    background-color: #f0c20b; /* Darker gold on hover */
+  }
+  
+  /* Secondary Button (Purple) */
+  .secondary-button {
+    background-color: #b19cd9;
+    color: #fff;
+  }
+  
+  .secondary-button:hover {
+    background-color: #9a7dcd; /* Darker purple on hover */
+  }
+  
+  /* Outline Button (Neon Green) */
+  .outline-button {
+    background-color: transparent;
+    border: 2px solid #00ff00; /* Neon green border */
+    color: #00ff00;
+  }
+  
+  .outline-button:hover {
+    background-color: rgba(0, 255, 0, 0.1); /* Slight neon green fill on hover */
+    color: #00ff00;
+  }
+  .outline-button:active{
+     background-color: rgba(0, 255, 0, 0.2); /* Slight neon green fill on hover */
+    color: #00ff00;
+  }
+  
+  /* ---  Input Styles --- */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 0.75rem;
+    border: 1px solid #4a4a4a; /* Darker border */
+    border-radius: 0.5rem;
+    background-color: #121212; /* Very dark input background */
+    color: #eee;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px; /* Limit input width */
+    margin: 0.5rem 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #b19cd9; /* Purple focus border */
+    box-shadow: 0 0 0 3px rgba(177, 156, 217, 0.2); /* Subtle purple focus shadow */
+  }
+  
+  /* --- Cards --- */
+  .card {
+    background-color: #0a0a0a; /* Very dark card background */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    border: 1px solid #1a1a1a;
+  }
+  
+  .card-title {
+    color: #FFD700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-content {
+    color: #eee;
+  }
+  
+  /* --- Utilities --- */
+  .container {
+    max-width: 1200px; /* Increased max-width */
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  .flex-center {
+    display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+  }
+  .text-center{
+      text-align: center;
+  }
+  
+  /* --- Sections --- */
+  .section {
+    padding: 3rem 0; /* Increased vertical padding for sections */
+  }
+  .section-title{
+      color: #FFD700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+  }
+  
+  /* --- Animations --- */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease;
+  }
+  
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+    .container {
+      padding: 0 1rem;
+    }
+    .section {
+      padding: 2rem 0;
+    }
+  }
+  
+  /* Specific component adjustments (adjust based on your actual component structure) */
+  /* Example for a music player component */
+  .music-player {
+    background-color: #000;
+    border: 1px solid #2a2a2a;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    /* width: 100%;
+    max-width: 400px;
+    margin: 0 auto; */
+  }
+  .music-player-controls-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .music-player-controls{
+      display: flex;
+      /* justify-content: center; */  /* Removed from here */
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      color: white;
+  }
+  .music-player-controls button{
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #c3c3c3;
+      transition: color 0.3s, transform 0.05s ease-in;
+      font-size: 2.5rem;
+  }
+  
+  .music-player-controls button:active {
+      transform: scale(0.85);
+  }
+  
+  .music-player-track-info{
+      text-align: center;
+      margin-bottom: 1rem;
+  
+  }
+  
+  .playlist-container {
+    /* background-color: #0a0a0a; */
+    border-radius: 0.75rem;
+    padding: 1rem;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    /* max-height: 300px;
+    overflow-y: auto; */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .playlist-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #2a2a2a;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #eee;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between title and duration */
+    align-items: center; /* Vertically center items */
+  }
+  
+  .playlist-item:last-child {
+    border-bottom: none;
+  }
+  
+  .playlist-item:hover {
+    background-color: rgba(177, 156, 217, 0.1); /* হালকা বেগুনী আভা */
+  }
+  .playlist-item.active{
+      background-color: rgba(177, 156, 217, 0.3); /* More intense purple */
+      color: #fff;
+      font-weight: bold;
+  }
+  .track-duration {
+    font-size: 0.8rem; /* Smaller font for duration */
+    color: #b8b8b8; /* Lighter color for duration */
+  }
+  
+  /* ---Custom Scrollbar (Webkit) --- */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000; /* Black scrollbar track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #b19cd9; /* Purple scrollbar thumb */
+    border-radius: 20px;
+    border: 2px solid #000; /* Black border */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #9a7dcd; /* Darker purple on hover */
+  }
+  
+  /* ---Custom Scrollbar (Firefox) --- */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #b19cd9 #000;
+  }
+  
+  /* ---Custom Scrollbar (IE/Edge) --- */
+  * {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  
+  /* --- духовные элементы --- */
+  .spiritual-element {
+    /* Add glowing effect */
+    box-shadow: 0 0 20px rgba(177, 156, 217, 0.5); /* Purple glow */
+    border: 1px solid #b19cd9; /* Purple border */
+    border-radius: 50%; /* Make it round */
+    padding: 2rem;
+    margin: 1rem auto;
+    animation: pulse 2s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .spiritual-element-inner{
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background-color: rgba(177, 156, 217, 0.2);
+  }
+  
+  @keyframes pulse {
+    from {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+  .chakra-symbol {
+    font-size: 3rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+  }
+  
+  /* ---  Added from .controls  --- */
+  .music-player-controls button.pause-icon.playing,
+  .music-player-controls button.play-icon.playing {
+      animation: colorShiftPause 5s linear infinite;
+  }
+  
+  @keyframes colorShiftPause {
+      0% {
+          color: #ff90c0;
+      }
+  
+      25% {
+          color: #00eeff;
+      }
+  
+      50% {
+          color: #85baff;
+      }
+  
+      75% {
+          color: #d773ff;
+      }
+  
+      100% {
+          color: #00ffcc;
+      }
+  }
+  
+  .music-player-controls button.shuffle-button,
+  .music-player-controls button.repeat-button {
+      color: #c3c3c3;
+      transition: color 0.3s;
+  }
+  
+  .music-player-controls button.shuffle-button.active,
+  .music-player-controls button.repeat-button.active {
+      color: #02ffb3;
+  }
+  
+  /*#shuffle,
+  #repeat {
+      font-size: 1.5rem;
+  
+  }*/  /* Removed as it is already in the general button style*/
+  
+  /* ------------------------------------------------------------ MOBILE */
+  @media (max-width: 600px) {}
+  
+  /* ------------------------------------------------------------ DESKTOP */
+  
+  @media (min-width: 601px) {
+  
+      .music-player-controls {
+          z-index: 10;
+      }
+  
+  }
+  
